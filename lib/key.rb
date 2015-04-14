@@ -1,12 +1,8 @@
 class Key
   attr_reader :key
 
-  def initialize(key = 0)
-    @key = key.to_s
-  end
-
-  def generate
-    Random.new.rand(10_000..99_999)
+  def initialize(key = "0")
+    @key = key
   end
 
   def rotations
@@ -18,4 +14,7 @@ class Key
     r
   end
 
+  def generate
+    Random.new.rand(10_000..99_999)
+  end
 end

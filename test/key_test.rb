@@ -5,9 +5,9 @@ require './lib/key'
 
 class KeyTest < Minitest::Test
 
-  def test_initial_it_has_a_key
+  def testl_it_has_a_key
     result = Key.new
-    assert_equal "0", result.key
+    assert result.respond_to? (key)
   end
 
   def test_it_can_generate_a_five_digit_key
@@ -27,18 +27,18 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_can_accept_a_known_key
-    result = Key.new(12345)
+    result = Key.new("12345")
     assert_equal "12345", result.key
   end
 
   def test_it_can_give_the_rotation_for_the_first_number
-    result = Key.new(12345)
+    result = Key.new("12345")
     rotation = result.rotations
     assert_equal 12, rotation[0]
   end
 
   def test_it_can_give_all_four_rotation_values
-    result = Key.new(41521)
+    result = Key.new("41521")
     rotation = result.rotations
     assert_equal [41, 15, 52, 21], rotation
   end
