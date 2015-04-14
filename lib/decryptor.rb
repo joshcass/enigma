@@ -1,7 +1,7 @@
 require_relative 'total_rotations'
 require_relative 'cipher'
 
-class Encryptor
+class Decryptor
   attr_reader :rotations, :message, :master_cipher
 
   def initialize(message, key, date)
@@ -10,19 +10,18 @@ class Encryptor
     @message = message.chars
   end
 
-  def encrypt
+  def decrypt
     generate_cipher
-    n = 0
     message.map.with_index do |l, i|
+      n = 0
       master_cipher[n][message[i]]
-      n < 3 ? n : n += 1
+      n == 3 ? n = 0 : n += 1
     end.join
-    # message.map.with_index {|l, i| master_cipher[i][message[i]]}.join
   end
 
   private
 
   def generate_cipher
-    @master_cipher = rotations.map {|n| Cipher.new(n).cipher}
+    @master_cipher = rotations.map {|n| Cipher.new(-n).cipher}
   end
 end

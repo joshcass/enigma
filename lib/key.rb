@@ -1,18 +1,15 @@
 class Key
   attr_reader :key
 
-  def initialize(key = "0")
+  def initialize(key = generate)
     @key = key
   end
 
   def rotations
-    r = []
-    4.times do |n|
-      r << (key[n] + key[n + 1]).to_i
-      n += 1
-    end
-    r
+    key.chars.each_cons(2).map(&:join).map(&:to_i)
   end
+
+  private
 
   def generate
     Random.new.rand(10_000..99_999)

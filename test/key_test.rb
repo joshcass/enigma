@@ -5,22 +5,22 @@ require './lib/key'
 
 class KeyTest < Minitest::Test
 
-  def testl_it_has_a_key
+  def test_it_has_a_key
     result = Key.new
-    assert result.respond_to? (key)
+    assert result.respond_to?(:key)
   end
 
   def test_it_can_generate_a_five_digit_key
-    result = Key.new
-    key = result.key
-    assert_equal key.to_s.size == 5, result.generate.to_s == 5
+    random = Key.new
+    assigned = Key.new("12345")
+    assert_equal assigned.to_s.length, random.to_s.length
   end
 
   def test_it_can_generate_a_random_five_digit_key
     result = Key.new
     keys = []
     1000.times do
-      keys << result.generate
+      keys << result
     end
     keys.group_by{|i| i}
     assert_equal 1000, keys.count
@@ -43,5 +43,5 @@ class KeyTest < Minitest::Test
     assert_equal [41, 15, 52, 21], rotation
   end
 
-
+  # edge cases - input key longer than 5 digits
 end
