@@ -1,6 +1,6 @@
 require_relative 'enigma'
 
-#set up values from user input
+# set up values from user input
 handle = File.open("#{ARGV[0]}", "r")
 message = handle.read.chomp
 if ARGV[2].size == 5
@@ -13,9 +13,11 @@ if ARGV[3].size == 6
 else
   abort("****ERROR****\nDate must be in the format DDMMYY, e.g. 070315")
 end
-#run the program
+
+# run the program
 result = Enigma.new(message, key, date).decrypt
-#write the result to a new file, first checking if it exists
+
+# write the result to a new file, first checking if it exists
 if File::exists?("#{ARGV[1]}")
   puts "***Warning***\nThis file already exists, would you like to overwrite it?\n'y' to overwrite, any other key to cancel"
   answer = $stdin.gets.chomp
@@ -29,5 +31,6 @@ else
 end
 @writer.write(result + "\n")
 @writer.close
-#print the actions to the console
+
+# print the actions to the console
 puts "Created #{ARGV[1]} with the key #{key} and date #{date}"

@@ -10,25 +10,23 @@ class KeyTest < Minitest::Test
     assert result.respond_to?(:key)
   end
 
-  def test_it_can_generate_a_five_digit_key
-    random = Key.new
-    assigned = Key.new("12345")
-    assert_equal assigned.to_s.length, random.to_s.length
-  end
-
-  def test_it_can_generate_a_random_five_digit_key
-    result = Key.new
-    keys = []
-    1000.times do
-      keys << result
-    end
-    keys.group_by{|i| i}
-    assert_equal 1000, keys.count
-  end
-
   def test_it_can_accept_a_known_key
     result = Key.new("12345")
     assert_equal "12345", result.key
+  end
+
+  def test_it_can_generate_a_five_digit_key
+    assigned = Key.new("12345")
+    assert_equal assigned.key.length, Key.generate.length
+  end
+
+  def test_it_can_generate_a_random_five_digit_key
+    keys = []
+    1000.times do
+      keys << Key.generate
+    end
+    keys.group_by{|i| i}
+    assert_equal 1000, keys.count
   end
 
   def test_it_can_give_the_rotation_for_the_first_number
@@ -42,5 +40,4 @@ class KeyTest < Minitest::Test
     rotation = result.rotations
     assert_equal [41, 15, 52, 21], rotation
   end
-
 end

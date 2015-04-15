@@ -10,7 +10,7 @@ class OffsetTest < Minitest::Test
     assert result.respond_to?(:date)
   end
 
-  def test_it_can_accpet_a_provided_date
+  def test_it_can_accept_a_provided_date
     result = Offset.new("040776")
     assert_equal "040776", result.date
   end
@@ -21,16 +21,14 @@ class OffsetTest < Minitest::Test
     assert_equal date, result
   end
 
-  def test_it_can_square_the_date
-    skip
-    result = Offset.new("020315")
-    assert_equal 412699225, result.squared
-  end
-
-
   def test_it_can_determine_the_offset_key
     result = Offset.new("020315")
     assert_equal [9, 2, 2, 5], result.offsets
   end
 
+  def test_it_can_square_the_date
+    skip
+    result = Offset.new("020315")
+    assert_equal 412699225, result.squared
+  end
 end

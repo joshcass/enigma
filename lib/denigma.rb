@@ -15,6 +15,9 @@ class Denigma
       decrypted_message = Enigma.new(message, key.to_s.rjust(5, "0"), date).decrypt
       if decrypted_message[-7..-1] == "..end.."
         @cracked = true
+      elsif
+        key == 99999
+        abort("***ERROR***\nIncorrect encrypted message or date.")
       else
         @key += 1
       end
