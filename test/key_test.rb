@@ -43,5 +43,4 @@ class KeyTest < Minitest::Test
     assert_equal [41, 15, 52, 21], rotation
   end
 
-  # edge cases - input key longer than 5 digits
 end

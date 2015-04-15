@@ -33,5 +33,4 @@ class OffsetTest < Minitest::Test
     assert_equal [9, 2, 2, 5], result.offsets
   end
 
-  # edge cases - input longer than six digits, input date not formatted properly
 end

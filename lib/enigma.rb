@@ -23,8 +23,12 @@ class Enigma
   def translator(cipher)
     n = 0
     message.map.with_index do |l, i|
-      n == 3 ? n = 0 : n += 1
+      n == 4 ? n = 1 : n += 1
       cipher[n - 1][message[i]]
     end.join
   end
+
+
+
+
 end

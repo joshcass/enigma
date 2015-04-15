@@ -1,7 +1,7 @@
 class Key
   attr_reader :key
 
-  def initialize(key = generate)
+  def initialize(key = 0)
     @key = key
   end
 
@@ -9,9 +9,7 @@ class Key
     key.chars.each_cons(2).map(&:join).map(&:to_i)
   end
 
-  private
-
-  def generate
-    Random.new.rand(10_000..99_999)
+  def self.generate
+    Random.new.rand(10_000..99_999).to_s
   end
 end

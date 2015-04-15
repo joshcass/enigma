@@ -1,7 +1,7 @@
 class Offset
   attr_reader :date
 
-  def initialize(date = today)
+  def initialize(date = 0)
     @date = date
   end
 
@@ -9,13 +9,13 @@ class Offset
     squared.to_s.chars.map(&:to_i).last(4)
   end
 
+  def self.today
+    Time.now.strftime("%d%m%y").to_s
+  end
+
   private
 
   def squared
     date.to_i ** 2
-  end
-
-  def today
-    Time.now.strftime("%d%m%y")
   end
 end
