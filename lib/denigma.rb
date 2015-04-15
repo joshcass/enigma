@@ -17,7 +17,7 @@ class Denigma
         @cracked = true
       elsif
         key == 99999
-        abort("***ERROR***\nIncorrect encrypted message or date.")
+        abort("***OPERATION ABORTED***\nIncorrect encrypted message or date.")
       else
         @key += 1
       end
