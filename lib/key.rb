@@ -10,6 +10,6 @@ class Key
   end
 
   def self.generate
-    Random.new.rand(10_000..99_999).to_s
+    Random.new.rand(0..99_999).to_s.rjust(5, "0")
   end
 end
