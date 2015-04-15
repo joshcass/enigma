@@ -27,8 +27,4 @@ class Enigma
       cipher[n - 1][message[i]]
     end.join
   end
-
-
-
-
 end

@@ -16,9 +16,9 @@ class OffsetTest < Minitest::Test
   end
 
   def test_it_can_generate_current_date_in_proper_format
-    result = Offset.new
+    result = Offset.today
     date = Time.now.strftime("%d%m%y")
-    assert_equal date, result.date
+    assert_equal date, result
   end
 
   def test_it_can_square_the_date
