@@ -12,6 +12,7 @@ end
 
 # crack the key
 cracked_key = Denigma.new(message, date).crack
+
 #decrypt the message with cracked key
 result = Enigma.new(message, cracked_key, date).decrypt
 
@@ -32,3 +33,5 @@ end
 
 # print the actions to the console
 puts "Created #{ARGV[1]} with the key #{cracked_key} and date #{date}"
+
+
