@@ -1,6 +1,7 @@
 require_relative 'total_rotations'
 require_relative 'cipher'
 
+# Contains the encrypting and decrypting algorithms.
 class Enigma
   attr_reader :rotations, :message
 
@@ -10,21 +11,20 @@ class Enigma
   end
 
   def encrypt
-    translator(rotations.map {|n| Cipher.new(n).cipher})
+    translator(rotations.map {|num| Cipher.new(num).cipher})
   end
 
   def decrypt
-    translator(rotations.map {|n| Cipher.new(-n).cipher})
+    translator(rotations.map {|num| Cipher.new(-num).cipher})
   end
 
 
   private
-
   def translator(cipher)
-    n = 0
-    message.map do |l|
-      n == 4 ? n = 1 : n += 1
-      cipher[n - 1][l]
+    index = 0
+    message.map do |letter|
+      index == 4 ? index = 1 : index += 1
+      cipher[index - 1][letter]
     end.join
   end
 end

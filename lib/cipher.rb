@@ -1,3 +1,4 @@
+# Generates the character set and creates a cipher hash based on the rotation value passed in.
 class Cipher
   attr_reader :rotation
 
@@ -10,7 +11,6 @@ class Cipher
   end
 
   private
-
   def characters
     ("a".."z").to_a + ("0".."9").to_a + [" ", ".", ","]
   end

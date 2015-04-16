@@ -1,5 +1,6 @@
 require_relative 'enigma'
 
+# Performs brute force cracking to find the key when provided an encrypted message and date.
 class Denigma
   attr_reader :date, :key, :message, :cracked
 

@@ -27,4 +27,4 @@ end
 @writer.close
 
 # print the actions to the console
-puts "Created #{ARGV[1]}with the key #{key} and date #{date}"
+puts "Created #{ARGV[1]} with the key #{key} and date #{date}"

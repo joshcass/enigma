@@ -1,3 +1,4 @@
+# Creates the array of rotation values for the offset portion and generates a properly formatted current date.
 class Offset
   attr_reader :date
 

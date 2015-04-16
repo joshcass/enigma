@@ -1,3 +1,4 @@
+# Creates the array of rotation values for the key portion and generates a random key.
 class Key
   attr_reader :key
 

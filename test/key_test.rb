@@ -25,7 +25,7 @@ class KeyTest < Minitest::Test
     1000.times do
       keys << Key.generate
     end
-    keys.group_by{|i| i}
+    keys.group_by{|key| key}
     assert_equal 1000, keys.count
   end
 

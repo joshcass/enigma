@@ -1,6 +1,7 @@
 require './lib/key'
 require './lib/offset'
 
+# Sums the key and offset array values.
 class TotalRotations
   attr_reader :key, :date
 
@@ -10,6 +11,6 @@ class TotalRotations
   end
 
   def sum
-    key.rotations.zip(date.offsets).map {|n| n.reduce(:+)}
+    key.rotations.zip(date.offsets).map {|pair| pair.reduce(:+)}
   end
 end
