@@ -10,11 +10,11 @@ class Cipher
     Hash[characters.zip(characters_rotate)]
   end
 
-  private
   def characters
     ("a".."z").to_a + ("0".."9").to_a + [" ", ".", ","]
   end
 
+  private
   def characters_rotate
     characters.rotate(rotation)
   end

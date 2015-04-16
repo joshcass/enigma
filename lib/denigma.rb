@@ -13,7 +13,7 @@ class Denigma
 
   def crack
     until cracked
-      decrypted_message = Enigma.new(message, key.to_s.rjust(5, "0"), date).decrypt
+      decrypted_message = Enigma.new(message, key, date).decrypt
       if decrypted_message[-7..-1] == "..end.."
         @cracked = true
       elsif

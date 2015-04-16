@@ -3,7 +3,7 @@ class Key
   attr_reader :key
 
   def initialize(key = 0)
-    @key = key
+    @key = key.to_s.rjust(5, "0")
   end
 
   def rotations

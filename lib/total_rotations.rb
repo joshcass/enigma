@@ -5,7 +5,7 @@ require './lib/offset'
 class TotalRotations
   attr_reader :key, :date
 
-  def initialize(key, date)
+  def initialize(key = Key.new, date = Offset.new)
     @key = Key.new(key)
     @date = Offset.new(date)
   end

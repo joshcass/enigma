@@ -3,11 +3,11 @@ class Offset
   attr_reader :date
 
   def initialize(date = 0)
-    @date = date
+    @date = date.to_s.rjust(6, "0")
   end
 
   def offsets
-    squared.to_s.chars.map(&:to_i).last(4)
+    squared.chars.map(&:to_i).last(4)
   end
 
   def self.today
@@ -15,8 +15,7 @@ class Offset
   end
 
   private
-
   def squared
-    date.to_i ** 2
+    (date.to_i ** 2).to_s.rjust(6, "0")
   end
 end

@@ -4,7 +4,7 @@ require_relative 'enigma'
 
 # setup values from user input
 handle = File.open("#{ARGV[0]}", "r")
-message = handle.read.chomp.downcase
+message = handle.read.chomp
 key = Key.generate
 date = Offset.today
 
